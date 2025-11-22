@@ -14,14 +14,15 @@ new class extends Component {
 
 
 {{-- html --}}
-<div>
+<div> 
+    <form wire:submit='createTodo'>
+        <x-text-input wire:model='todoName' placeholder="Enter todo title" class="mr-2"/>
+        <x-primary-button type="submit">Add Todo</x-primary-button>
+    </form>
     @foreach ($todos as $todo)
      <div>
-    <li>
         {{ $todo->title }}   
-    </li>
-    
     </div>   
-        
+        <button wire:click='delete({{ $todo->id }})' class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
     @endforeach
 </div> 
