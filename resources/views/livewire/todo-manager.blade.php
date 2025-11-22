@@ -17,7 +17,8 @@ new class extends Component {
             'title' => $this->todoName,
         ]);
 
-        // $this->todoName = '';
+    $this->reset('todoName');   // ← input clears instantly
+
     }
     
     public function delete($id){
